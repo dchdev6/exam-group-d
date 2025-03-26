@@ -1,8 +1,10 @@
-const express = require('express');
-const router = express.Router();
+let exams = [];
 
-router.get('/', (req, res) => {
-    res.json({ message: "Group D API" });
+router.post("/exams", (req, res) => {
+  const newExam = req.body;
+  newExam.id = exams.length + 1;
+  exams.push(newExam);
+  res.status(201).json(newExam);
 });
 
 router.get("/exams", (req, res) => {

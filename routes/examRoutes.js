@@ -1,5 +1,9 @@
 let exams = [];
 
+router.get('/', (req, res) => {
+    res.json({ message: "Group D API" });
+});
+
 router.post("/exams", (req, res) => {
   const newExam = req.body;
   newExam.id = exams.length + 1;
